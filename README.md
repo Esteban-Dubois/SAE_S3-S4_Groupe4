@@ -1,1 +1,9 @@
-# SAE_S3-S4_Groupe4
+# ** SAE Site Evènementiel **
+
+## ** Groupe : ** 
+
+Arthur AIGUBELLE
+Baptiste AUBRY
+Jarod BOUJU
+Esteban DUBOIS
+Emmanuel LEVARD
