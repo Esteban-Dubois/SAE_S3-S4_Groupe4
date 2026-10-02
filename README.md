@@ -11,5 +11,3 @@ Jarod BOUJU
 Esteban DUBOIS
 
 Emmanuel LEVARD
-
-test modif
