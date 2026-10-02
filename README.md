@@ -1,6 +1,6 @@
-# ** SAE Site Evènementiel **
+# **SAE Site Evènementiel**
 
-## ** Groupe : ** 
+## **Groupe :** 
 
 Arthur AIGUBELLE
 Baptiste AUBRY
