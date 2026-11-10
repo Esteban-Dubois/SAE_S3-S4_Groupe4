@@ -1,4 +1,4 @@
-const prestataires = [
+let prestataires = [
   { id: 1, name: "Ramen Ichiraku", type: "restauration", note: 4.8 },
   { id: 2, name: "Otaku World", type: "boutique", note: 4.5 },
   { id: 3, name: "Manga Art Studio", type: "artiste", note: 5.0 },
@@ -13,4 +13,13 @@ const prestataires = [
   { id: 12, name: "Katanas & Co", type: "boutique", note: 4.5 }
 ];
 
-export { prestataires };
+let login = [
+  { id: 1, name: "Esteban", role: "ADMIN", mdp: "Secret" },
+  { id: 2, name: "Jarod", role: "PRESTATAIRE", mdp: "Secret"},
+  { id: 3, name: "Baptiste", role: "UTILISATEUR", mdp: "Secret"}
+];
+
+export { 
+  prestataires, 
+  login 
+};
