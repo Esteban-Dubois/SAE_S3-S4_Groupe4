@@ -13,4 +13,13 @@ const prestataires = [
   { id: 12, name: "Katanas & Co", type: "boutique", note: 4.5 }
 ];
 
-export { prestataires };
+let login = [
+  { id: 1, name: "Esteban", role: "ADMIN", mdp: "Secret" },
+  { id: 2, name: "Jarod", role: "PRESTATAIRE", mdp: "Secret"},
+  { id: 3, name: "Baptiste", role: "UTILISATEUR", mdp: "Secret"}
+];
+
+export { 
+  prestataires, 
+  login 
+};
