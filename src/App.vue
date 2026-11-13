@@ -10,6 +10,9 @@
         <router-link to="/prestataires/supprimer" custom v-slot="{ navigate }">
             <button @click="navigate" type="button">SUPPRIMER</button>
         </router-link>
+        <router-link to="/login" custom v-slot="{ navigate }">
+            <button @click="navigate" type="button">SE CONNECTER</button>
+        </router-link>
     </div>
     <router-view></router-view>
 </template>

@@ -15,6 +15,11 @@ const routes = [
     path: '/prestataires/supprimer',
     name: 'supprimer_prestataire',
     component: () => import('@/views/SupprimerPrestataireView.vue')
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/LoginView.vue')
   }
 ]
 

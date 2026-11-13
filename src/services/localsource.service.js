@@ -1,4 +1,5 @@
 import { prestataires } from '@/datasource/data.js'
+import { logins } from '@/datasource/data.js'
 import {v4 as uuidv4} from 'uuid'
 /* Les fonctions ci-dessous doivent mimer ce que renvoie l'API en fonction des requêtes possibles.
 
@@ -54,9 +55,18 @@ function supprimerPrestataire(id) {
   }
 }
 
+function login(id, name, mdp){
+  for (const log of logins) {
+    if (log.id === id && log.name === name && log.mdp === mdp) {
+      return { error: 0, data: {id: log.id, name: log.name, role: log.role} };
+    } 
+  }
+}
+
 export default{
   getAllPrestataires,
   creerPrestataire,
   chercherPrestataire,
-  supprimerPrestataire
+  supprimerPrestataire,
+  login
 }

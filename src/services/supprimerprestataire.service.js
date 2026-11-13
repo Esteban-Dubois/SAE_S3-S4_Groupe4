@@ -11,8 +11,8 @@ async function chercherPrestataire(id) {
     }
     catch(err) {
     response = {error: 1, status: 404, data: 'erreur réseau, impossible de récupérer le prestataire recherché.'  }
-  }
-  return response
+    }
+    return response
 }
 
 async function supprimerPrestataire(id) {

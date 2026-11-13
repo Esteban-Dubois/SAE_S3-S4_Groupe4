@@ -10,10 +10,11 @@ let prestataires = [
   { id: 9, name: "Sakura Café", type: "restauration", note: 4.9 },
   { id: 10, name: "Illustrations & Co", type: "artiste", note: 4.9 },
   { id: 11, name: "Scène Principale Cosplay", type: "scene", note: 4.8 },
-  { id: 12, name: "Katanas & Co", type: "boutique", note: 4.5 }
+  { id: 12, name: "Katanas & Co", type: "boutique", note: 4.5 },
+  { id: 13, name: "Naro Valo Coaching", type: "activite", note: 4.3 }
 ];
 
-let login = [
+let logins = [
   { id: 1, name: "Esteban", role: "ADMIN", mdp: "Secret" },
   { id: 2, name: "Jarod", role: "PRESTATAIRE", mdp: "Secret"},
   { id: 3, name: "Baptiste", role: "UTILISATEUR", mdp: "Secret"}
@@ -21,5 +22,5 @@ let login = [
 
 export { 
   prestataires, 
-  login 
+  logins 
 };
