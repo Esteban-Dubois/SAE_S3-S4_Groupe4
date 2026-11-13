@@ -14,7 +14,7 @@
                 <label for="typeprestataire">Type du stand : </label><input v-model.trim="np_type" id="typeprestataires">
             </div>
             <div>
-                <label for="noteprestataire">Note du stand : </label><input v-model="np_note" id="noteprestataires" type="number" step="0.1" min="0" max="5">
+                <label for="noteprestataire">Note du stand (de 0 à 5) : </label><input v-model="np_note" id="noteprestataires" type="number" step="0.1" min="0" max="5">
             </div>
             <div>
                 <p>/!\ TOUT LES CHAMPS DOIVENT ÊTRE REMPLI</p>
