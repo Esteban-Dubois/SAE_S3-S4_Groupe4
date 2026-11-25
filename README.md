@@ -2,8 +2,6 @@
 
 ## **Groupe :** 
 
-Arthur AIGUBELLE
-
 Baptiste AUBRY
 
 Jarod BOUJU
