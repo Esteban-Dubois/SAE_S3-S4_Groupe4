@@ -15,6 +15,23 @@ const routes = [
     path: '/prestataires/supprimer',
     name: 'supprimer_prestataire',
     component: () => import('@/views/SupprimerPrestataireView.vue')
+  },
+  {
+    path: '/articles/catalogue',
+    name: 'catalogue_articles',
+    component: () => import('@/views/CatalogueArticlesView.vue')
+  },
+  {
+    path: '/articles/creer',
+    redirect: { name: 'catalogue_articles' }
+  },
+  {
+    path: '/articles/modifier',
+    redirect: { name: 'catalogue_articles' }
+  },
+  {
+    path: '/articles/supprimer',
+    redirect: { name: 'catalogue_articles' }
   }
 ]
 

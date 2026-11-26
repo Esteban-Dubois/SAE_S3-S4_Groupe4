@@ -13,4 +13,6 @@ const prestataires = [
   { id: 12, name: "Katanas & Co", type: "boutique", note: 4.5 }
 ];
 
-export { prestataires };
+const articles = [];
+
+export { prestataires, articles };

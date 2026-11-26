@@ -1,5 +1,4 @@
-import { prestataires } from '@/datasource/data.js'
-import {v4 as uuidv4} from 'uuid'
+import { articles, prestataires } from '@/datasource/data.js'
 /* Les fonctions ci-dessous doivent mimer ce que renvoie l'API en fonction des requêtes possibles.
 
   Dans certains cas, ces fonctions vont avoir des paramètres afin de filtrer les données qui se trouvent dans data.js
@@ -54,9 +53,66 @@ function supprimerPrestataire(id) {
   }
 }
 
+function getAllArticles() {
+  const articlesUniques = new Map(articles.map(article => [article.id, article]));
+  articles.splice(0, articles.length, ...articlesUniques.values());
+  return { error: 0, data: [...articles] };
+}
+
+function chercherArticle(id) {
+  const article = articles.find(item => item.id === id);
+  return article
+    ? { error: 0, data: article }
+    : { error: 1, status: 404, data: "Article introuvable." };
+}
+
+function creerArticle({ name, description, price, stock, prestataireId }) {
+  if (!prestataires.some(prestataire => prestataire.id === prestataireId)) {
+    return { error: 1, status: 404, data: "Prestataire introuvable." };
+  }
+
+  const article = {
+    id: articles.reduce((maxId, item) => Math.max(maxId, item.id), 0) + 1,
+    name,
+    description,
+    price,
+    stock,
+    prestataireId,
+  };
+  articles.push(article);
+  return { error: 0, data: article };
+}
+
+function modifierArticle(id, modifications) {
+  const article = articles.find(item => item.id === id);
+  if (!article) {
+    return { error: 1, status: 404, data: "Article introuvable." };
+  }
+  if (!prestataires.some(prestataire => prestataire.id === modifications.prestataireId)) {
+    return { error: 1, status: 404, data: "Prestataire introuvable." };
+  }
+
+  Object.assign(article, modifications);
+  return { error: 0, data: article };
+}
+
+function supprimerArticle(id) {
+  const index = articles.findIndex(item => item.id === id);
+  if (index === -1) {
+    return { error: 1, status: 404, data: "Article introuvable." };
+  }
+  articles.splice(index, 1);
+  return { error: 0, data: true };
+}
+
 export default{
   getAllPrestataires,
   creerPrestataire,
   chercherPrestataire,
-  supprimerPrestataire
+  supprimerPrestataire,
+  getAllArticles,
+  chercherArticle,
+  creerArticle,
+  modifierArticle,
+  supprimerArticle,
 }
