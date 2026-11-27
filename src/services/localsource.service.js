@@ -90,11 +90,46 @@ function getStandById(id) {
   return { error: 0, data: { stand, details } }
 }
 
+function modifierStand(id, nom, desc) {
+  const idNum = Number(id)
+  const stand = stands.find(s => s.id === idNum)
+  if (!stand) {
+    return { error: 1, data: "Stand introuvable" }
+  }
+  stand.nom = nom
+  stand.desc = desc
+  return { error: 0, data: stand }
+}
+
+function modifierBoutique(idstand, nbArticles) {
+  const idNum = Number(idstand)
+  const boutique = boutiques.find(b => b.idstand === idNum)
+  if (!boutique) {
+    return { error: 1, data: "Boutique introuvable" }
+  }
+  boutique.nbArticles = Number(nbArticles)
+  return { error: 0, data: boutique }
+}
+
+function modifierRestaurant(idstand, nbProduits, allergenes) {
+  const idNum = Number(idstand)
+  const restaurant = restaurants.find(r => r.idstand === idNum)
+  if (!restaurant) {
+    return { error: 1, data: "Restaurant introuvable" }
+  }
+  restaurant.nbProduits = Number(nbProduits)
+  restaurant.allergenes = allergenes
+  return { error: 0, data: restaurant }
+}
+
 export default {
   creerStand,
   creerBoutique,
   creerRestaurant,
   supprimerStand,
   getAllStands,
-  getStandById
+  getStandById,
+  modifierStand,
+  modifierBoutique,
+  modifierRestaurant
 }

@@ -16,6 +16,18 @@ async function supprimerStandFromLocalSource(id) {
     return LocalSource.supprimerStand(id);
 }
 
+async function modifierStandFromLocalSource(id, nom, desc) {
+    return LocalSource.modifierStand(id, nom, desc);
+}
+
+async function modifierBoutiqueFromLocalSource(idstand, nbArticles) {
+    return LocalSource.modifierBoutique(idstand, nbArticles);
+}
+
+async function modifierRestaurantFromLocalSource(idstand, nbProduits, allergenes) {
+    return LocalSource.modifierRestaurant(idstand, nbProduits, allergenes);
+}
+
 async function creerStand(nom, type, desc) {
     let response = null;
     try {
@@ -56,9 +68,42 @@ async function supprimerStand(id) {
     return response;
 }
 
+async function modifierStand(id, nom, desc) {
+    let response = null;
+    try {
+        response = await modifierStandFromLocalSource(id, nom, desc);
+    } catch (error) {
+        response = { error: 1, data: "Erreur lors de la modification du stand" };
+    }
+    return response;
+}
+
+async function modifierBoutique(idstand, nbArticles) {
+    let response = null;
+    try {
+        response = await modifierBoutiqueFromLocalSource(idstand, nbArticles);
+    } catch (error) {
+        response = { error: 1, data: "Erreur lors de la modification de la boutique" };
+    }
+    return response;
+}
+
+async function modifierRestaurant(idstand, nbProduits, allergenes) {
+    let response = null;
+    try {
+        response = await modifierRestaurantFromLocalSource(idstand, nbProduits, allergenes);
+    } catch (error) {
+        response = { error: 1, data: "Erreur lors de la modification du restaurant" };
+    }
+    return response;
+}
+
 export default {
     creerStand,
     creerBoutique,
     creerRestaurant,
-    supprimerStand
+    supprimerStand,
+    modifierStand, 
+    modifierBoutique, 
+    modifierRestaurant
 }

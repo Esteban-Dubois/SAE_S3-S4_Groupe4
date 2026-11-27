@@ -44,5 +44,32 @@ export const useGererStandStore = defineStore('gererstand', () => {
         return true
     }
 
-    return { id, creerStand, creerBoutique, creerRestaurant, supprimerStand }
+    async function modifierStand(idStand, nom, desc) {
+        const response = await GererStandService.modifierStand(idStand, nom, desc)
+        if (response.error > 0) {
+            console.log("code erreur : " + response.error + " - message : " + response.data)
+            return false
+        }
+        return true
+    }
+
+    async function modifierBoutique(idstand, nbArticles) {
+        const response = await GererStandService.modifierBoutique(idstand, nbArticles)
+        if (response.error > 0) {
+            console.log("code erreur : " + response.error + " - message : " + response.data)
+            return false
+        }
+        return true
+    }
+
+    async function modifierRestaurant(idstand, nbProduits, allergenes) {
+        const response = await GererStandService.modifierRestaurant(idstand, nbProduits, allergenes)
+        if (response.error > 0) {
+            console.log("code erreur : " + response.error + " - message : " + response.data)
+            return false
+        }
+        return true
+    }
+
+    return { id, creerStand, creerBoutique, creerRestaurant, supprimerStand, modifierStand, modifierBoutique, modifierRestaurant }
 })
