@@ -2,19 +2,24 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
-    path: '/prestataires/catalogue',
-    name: 'catalogue_prestataires',
-    component: () => import('@/views/CataloguePrestatairesView.vue')
+    path: '/stand/creer',
+    name: 'creer_stand',
+    component: () => import('@/views/creerstand/CreerStandView.vue')
   },
   {
-    path: '/prestataires/creer',
-    name: 'creer_prestataire',
-    component: () => import('@/views/CreerPrestataireView.vue')
+    path: '/stand/supprimer',
+    name: 'supprimer_stand',
+    component: () => import('@/views/SupprimerStandView.vue')
   },
   {
-    path: '/prestataires/supprimer',
-    name: 'supprimer_prestataire',
-    component: () => import('@/views/SupprimerPrestataireView.vue')
+    path: '/stands',
+    name: 'liste_stands',
+    component: () => import('@/views/afficherstand/AfficherListeStandView.vue')
+  },
+  {
+    path: '/stand/:id',
+    name: 'afficher_stand',
+    component: () => import('@/views/afficherstand/AfficherStandView.vue')
   },
   {
     path: '/articles/catalogue',

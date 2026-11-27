@@ -6,13 +6,13 @@
     <div>
       <label for="article-provider">Prestataire / stand : </label>
       <select id="article-provider" v-model.number="prestataireId" @change="changerPrestataire">
-        <option disabled value="">Choisir un prestataire</option>
+        <option disabled value="">Choisir un stand</option>
         <option
-          v-for="prestataire in prestatairesStore.listePrestataires"
-          :key="prestataire.id"
-          :value="prestataire.id"
+          v-for="stand in standsStore.stands"
+          :key="stand.id"
+          :value="stand.id"
         >
-          {{ prestataire.name }}
+          {{ stand.nom }}
         </option>
       </select>
     </div>
@@ -46,7 +46,7 @@
         </button>
       </form>
 
-      <h2>Articles de {{ prestataireActif.name }}</h2>
+      <h2>Articles de {{ prestataireActif.nom }}</h2>
       <p v-if="articlesDuPrestataire.length === 0">Ce stand n'a pas encore d'article.</p>
       <table v-else>
         <thead>
@@ -85,10 +85,10 @@
 <script setup>
 import { computed, onMounted, reactive, ref } from "vue";
 import { useArticlesStore } from "@/stores/articles.js";
-import { useCataloguePrestatairesStore } from "@/stores/catalogueprestataires.js";
+import { useAfficherStandStore } from "@/stores/afficherstand.js";
 
 const articlesStore = useArticlesStore();
-const prestatairesStore = useCataloguePrestatairesStore();
+const standsStore = useAfficherStandStore();
 const prestataireId = ref("");
 const articleEnEditionId = ref(null);
 const articleASupprimerId = ref(null);
@@ -102,8 +102,8 @@ const form = reactive({
 });
 
 const prestataireActif = computed(() =>
-  prestatairesStore.listePrestataires.find(
-    prestataire => prestataire.id === Number(prestataireId.value),
+  standsStore.stands.find(
+    stand => stand.id === Number(prestataireId.value),
   ),
 );
 
@@ -183,6 +183,6 @@ async function supprimerArticle(id) {
 
 onMounted(() => {
   articlesStore.getAllArticles();
-  prestatairesStore.getAllPrestataires();
+  standsStore.getAllStands();
 });
 </script>
