@@ -13,5 +13,10 @@ let data= ref({});
 function save(){
     saveUser(data.value);
 }
+// LIGNES CI-DESSOUS TEMPORAIRES, POUR TESTS PLUS RAPIDES
+data.value.name='name';
+data.value.nickname='nickname';
+data.value.email='email';
+data.value.password='password';
 
 </script>

@@ -27,6 +27,11 @@ const routes = [
     component: () => import('@/views/CatalogueArticlesView.vue')
   },
   {
+    path: '/user/create',
+    name: 'user_create',
+    component: () => import('@/views/login/CreateAccount.vue')
+  },
+  {
     path: '/articles/creer',
     redirect: { name: 'catalogue_articles' }
   },
@@ -37,6 +42,10 @@ const routes = [
   {
     path: '/articles/supprimer',
     redirect: { name: 'catalogue_articles' }
+  },
+  {
+    path: '/user/create',
+    redirect: { name: 'user_create' }
   }
 ]
 

@@ -13,6 +13,9 @@
         <router-link to="/articles/catalogue" custom v-slot="{ navigate }">
             <button @click="navigate" type="button">MES ARTICLES</button>
         </router-link>
+        <router-link to="/user/create" custom v-slot="{ navigate }">
+            <button @click="navigate" type="button">CREER COMPTE</button>
+        </router-link>
     </div>
     <router-view></router-view>
 </template>
